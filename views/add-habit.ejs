@@ -1,0 +1,14 @@
+
+<h2>Add a New Habit</h2>
+
+<form action="/habits/add" method="POST">
+  <div class="form-group">
+    <label for="habitName">Habit Name</label>
+    <input type="text" class="form-control" id="habitName" name="habitName" placeholder="e.g., Drink Water" required>
+  </div>
+  <div class="form-group">
+    <label for="goal">Daily Goal (times per day)</label>
+    <input type="number" class="form-control" id="goal" name="goal" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Habit</button>
+</form>
