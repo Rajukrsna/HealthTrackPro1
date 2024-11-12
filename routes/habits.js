@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Habit = require('../models/habit');
+const Habit = require('../models/Habit');
 
 // Display habits
 router.get('/', async (req, res) => {
