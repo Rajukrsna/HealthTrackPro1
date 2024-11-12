@@ -1,12 +1,39 @@
 const mongoose = require('mongoose');
 
 const nutritionSchema = new mongoose.Schema({
-    userId:{type:mongoose.Schema.Types.ObjectId, ref:'User'},
-    calories:Number,
+  calories: Number,
+  protein: Number,
+  carbs: Number,
+  fats: Number,
+  breakfast: {
+    food: String,
+    calories: Number,
     protein: Number,
     carbs: Number,
     fats: Number,
-    date:{ type: Date, default: Date.now},
+  },
+  lunch: {
+    food: String,
+    calories: Number,
+    protein: Number,
+    carbs: Number,
+    fats: Number,
+  },
+  dinner: {
+    food: String,
+    calories: Number,
+    protein: Number,
+    carbs: Number,
+    fats: Number,
+  },
+  totalCalories: Number,
+  totalProtein: Number,
+  totalCarbs: Number,
+  totalFats: Number,
+  createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Nutrition', nutritionSchema)
+// Check if the model is already compiled to avoid OverwriteModelError
+const Nutrition = mongoose.models.Nutrition || mongoose.model('Nutrition', nutritionSchema);
+
+module.exports = Nutrition;
