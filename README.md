@@ -10,13 +10,10 @@
   - [Component Diagram](#component-diagram)
   - [Network Topology](#network-topology)
 - [Technical Documentation](#technical-documentation)
-  - [System Architecture and Design](#system-architecture-and-design)
+  
   - [Explanation of Key Components and Modules](#explanation-of-key-components-and-modules)
   - [API Documentation](#api-documentation)
   - [Setup and Usage Instructions](#setup-and-usage-instructions)
-- [Future Plans](#future-plans)
-- [Challenges](#challenges)
-- [What's Next](#whats-next)
 
 ---
 
