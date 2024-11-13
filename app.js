@@ -6,6 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');  // Import connect-flash
+ 
 require('./config/passport')(passport);  
 require('dotenv').config();
 
@@ -53,13 +54,16 @@ const nutritionRoutes = require('./routes/nutrition');
 const dashboardRouter = require('./routes/dashboard'); 
 const authRouter = require('./routes/auth');  
 const sympRouter = require('./routes/symptom');
-
+const chatbotRoute = require('./routes/chatbot');  
+const generateRoute = require('./routes/generate');
 // Routes
 app.use('/auth', authRouter);
 app.use('/habits', habitRoutes);
 app.use('/nutrition', nutritionRoutes);
 app.use('/symptom', sympRouter)
 app.use('/dashboard', dashboardRouter);
+app.use('/chatbot', chatbotRoute);  
+app.use('/generate', generateRoute);
 
 // Home Route
 app.get('/', (req, res) => res.redirect('/auth/login'));
