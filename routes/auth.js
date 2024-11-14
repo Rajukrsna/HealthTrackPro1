@@ -30,6 +30,7 @@ router.post('/register', async (req, res) => {
 
     // Create a new user instance
     const newUser = new User({
+      username,
       email,
       password: hashedPassword,
     });
