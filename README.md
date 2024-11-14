@@ -10,24 +10,21 @@
   - [Component Diagram](#component-diagram)
   - [Network Topology](#network-topology)
 - [Technical Documentation](#technical-documentation)
-  - [System Architecture and Design](#system-architecture-and-design)
+  
   - [Explanation of Key Components and Modules](#explanation-of-key-components-and-modules)
   - [API Documentation](#api-documentation)
   - [Setup and Usage Instructions](#setup-and-usage-instructions)
-- [Future Plans](#future-plans)
-- [Challenges](#challenges)
-- [What's Next](#whats-next)
 
 ---
 
 ## Inspiration
-HealthTrackPro was inspired by the need for a comprehensive yet user-friendly application that empowers individuals to track their habits, understand their nutrition, and receive personalized health advice. Our goal is to help users make informed choices about their health through data-driven insights and AI-powered suggestions.
+HealthTrackPro was inspired by the need for a comprehensive yet user-friendly application that empowers individuals to track their habits, understand their nutrition and their goal of calorie intake per day, get health symptom analysis from AI, receive personalized health advice for the same. Our goal is to help users make informed choices about their health through data-driven insights and AI-powered suggestions.
 
 ---
 
 ## Project Objectives
 1. Develop a **holistic health and wellness application** focused on tracking user habits and analyzing nutrient intake.
-2. Integrate **AI-based recommendations** for nutrition and wellness practices in future phases.
+2. Integrate **AI-based recommendations** for nutrition, wellness practices and to cure health symptom
 
 ---
 
@@ -39,37 +36,32 @@ HealthTrackPro was inspired by the need for a comprehensive yet user-friendly ap
 - **Backend**: 
   - Node.js/Express server for handling requests, analyzing data, and connecting to external APIs.
 - **Database**: 
-  - MongoDB (NoSQL) to store user data securely.
-- **AI Model (Future)**: 
-  - AI service layer for personalized recommendations and analysis of health trends.
+  - MongoDB (NoSQL) hosted on AWS for secure and scalable data storage.
+- **AI Model**: 
+  - **Cohere AI model**: Used for health symptom analysis and personalized recommendations.
+  - **AWS Bedrock**: for accessing the foundation models that AWS offers.
+- **Lambda Functions**: 
+  - AWS Lambda handles serverless execution of tasks like data processing and user request handling in the backend.
 
 ### Component Diagram
 - **Frontend Components**:
-  - Login, Habit Tracking, Nutritional Analysis, Health Issue Input.
+  - Register, Login, Habit Tracking, Nutritional Analysis, Health Issue/symptom Input, HealthAI chatbot.
 - **Backend Components**:
-  - User Authentication, Data Processing, API Integration, and Database Communication.
+  - User Authentication, Data Processing, API Integration, and Database Communication, report generation.
 - **Data Storage**:
-  - Cloud-hosted MongoDB database on Vultr to store and manage user data.
+  - MongoDB database hosted on AWS for secure and efficient management of user health data.
 
 ### Network Topology
 - **User Device**:
   - Connects securely via HTTPS to the frontend, which communicates with the backend server.
-- **Backend on Vultr**:
-  - Hosts the application server, managing all data requests and interactions.
+- **Backend on AWS**:
+  - Hosts the application server, managing all data requests from the AI Model and interactions through AWS Lambda functions.
 - **Database**:
-  - Deployed on Vultr’s private network for secure and optimized data handling.
+  - Deployed on AWS to ensure scalability, reliability, and security of user data.
 
 ---
 
 ## Technical Documentation
-
-### System Architecture and Design
-- **Frontend**: 
-  - Developed with HTML, CSS, JavaScript, Bootstrap, and Chart.js for dynamic data visualization.
-- **Backend**: 
-  - Node.js and Express.js, handling API calls, data processing, and communication with MongoDB.
-- **Database**:
-  - MongoDB for secure data storage and management of user health information.
 
 ### Explanation of Key Components and Modules
 - **User Authentication Module**: 
@@ -78,22 +70,18 @@ HealthTrackPro was inspired by the need for a comprehensive yet user-friendly ap
   - Allows users to record and visualize daily activities.
 - **Nutritional Analysis Module**: 
   - Accepts user food inputs and provides nutrient breakdown.
-- **AI Recommendation Module (Future)**: 
-  - Plans to use machine learning to deliver personalized health advice based on user trends.
+- **AI Recommendation Module**:
+  - Uses **Cohere AI** for health symptom analysis and personalized recommendations based on user data.
+  - **AWS Bedrock** enables advanced AI models for health trend analysis and predictions.
 
-### API Documentation
-- **GET /healthData**: 
-  - Retrieves user’s health data from the database.
-- **POST /nutrition/analyze**: 
-  - Analyzes nutrient content from user-provided food input data.
-- **POST /habit/update**: 
-  - Updates daily habit tracking data in the database.
 
 ### Setup and Usage Instructions
 
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/Rajukrsna/HealthTrackPro1.git
+   
    cd HealthTrackPro1
-2.run the command: npm install
-3. run it at localhost:3000
+
+2. **Install the necessary Dependencies and start running it at the localhost:3000**
+
