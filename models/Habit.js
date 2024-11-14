@@ -9,6 +9,6 @@ const habitSchema = new mongoose.Schema({
 });
 
 // Prevent overwriting the model if it's already defined
-const Habit = mongoose.models.Habit || mongoose.model('Habit', habitSchema);
+const Habit =  mongoose.model('Habit', habitSchema);
 
 module.exports = Habit;
